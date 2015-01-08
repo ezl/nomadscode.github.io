@@ -2,4 +2,5 @@ body {
   font-family: Helvetica;
   margin: 0 auto;
   max-width: 20em;
+  padding-top: 2em;
 }
