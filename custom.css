@@ -1,3 +1,17 @@
 #main {
   padding-top: 40px; /* i assume this is padding to account for the top nav.  stolen from .startr-template on http://getbootstrap.com/examples/starter-template/ */
 }
+
+p.title {
+  font-weight: 700;
+  color: #959595;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p.helptext {
+  padding-top: 5px;
+  font-size: 0.8em;
+  color: #959595;
+  font-style: italic;
+}

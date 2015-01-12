@@ -2,6 +2,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="custom.css">
   <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
@@ -27,8 +28,87 @@
       </div>
         </div><!-- .col-md-6 -->
       </div><!-- .row -->
+
+      <hr>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form class="form well">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="title">Hi. on Slack/hashtagnomads, I am</p>
+                <div class="form-group">
+                  <label class="sr-only" for="slackUsernameInput">Slack Username</label>
+                  <input type="text" class="form-control" name="slackUsernameInput" id="slackUsernameInput" placeholder="Your Slack Username">
+                </div>
+              </div><!-- .col-sm-6 -->
+              <div class="col-sm-6">
+                <p class="title">I am mostly interested in</p>
+                 <div class="radio">
+                   <label>
+                     <input type="radio" name="hireOrBeHired" id="beHiredRadio" value="beHired" checked>
+                     Being Hired
+                   </label>
+                 </div><!-- .radio -->
+                 <div class="radio">
+                   <label>
+                     <input type="radio" name="hireOrBeHired" id="hireRadio" value="hirePeople">
+                     Hiring People
+                   </label>
+                 </div><!-- .radio -->
+              </div><!-- .col-sm-6 -->
+            </div><!-- .row -->
+
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="title beHired">I primarily work with these skills/technologies</p>
+                <p class="title hirePeople" style="display:none;">I want to hire someone with these skills/technologies</p>
+                <textarea class="form-control" id="skills" rows="3"></textarea>
+                <p class="helptext">Python, Ruby, PHP, Wordpress, SEO, Design Work, UI/UX Consulting, Marketing, Copy Writing, Social Media Management, etc.</p>
+                <p class="helptext">One per row, maximum of 4.</p>
+              </div><!-- .col-sm-6 -->
+              <div class="col-sm-6 beHired">
+                <p class="title">My Weekly Rate In USD Is:</p>
+                <div class="form-group">
+                  <label class="sr-only" for="weeklyRate">Weekly Rate</label>
+                  <input type="number" class="form-control" id="weeklyRate">
+                  <p class="helptext">Pick a weekly number you'd be comfortable with for a gig you'd like.</p>
+                  <p class="helptext">Yes, "it varies".  But use a starting anchor on a weekly timeframe you're comfortable with and people can connect and individually negotiate hourly or monthly or per project situations.</p>
+                </div>
+              </div><!-- .col-sm-6 -->
+            </div><!-- .row -->
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <p class="title">It would be awesome to work with me because...</p>
+                  <label class="sr-only" for="aboutMe">About Me</label>
+                  <textarea class="form-control" rows="3" id="aboutMe" placeholder="You're a precious snowflake.  I know you want to tell me all about it. Here's your chance to tell your next employee/employer why working with you is a delight and a privilege."></textarea>
+                </div>
+              </div><!-- .col-sm-12 -->
+            </div><!-- .row -->
+
+            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add Me To The List</button>
+          </form>
+
+        </div><!-- .col-md-12 -->
+      </div><!-- .row -->
+
+
     </div><!-- #main -->
   </div><!-- .container -->
-
+  <script type='text/javascript'>
+    jQuery(document).ready(function(){
+      $('input:radio[name="hireOrBeHired"]').change(function() {
+          if ($(this).is(':checked') && $(this).val() == 'beHired') {
+            $(".beHired").show();
+            $(".hirePeople").hide();
+          } else {
+            $(".beHired").hide();
+            $(".hirePeople").show();
+          }
+      });
+    });
+  </script> 
   </body>
 </html>
