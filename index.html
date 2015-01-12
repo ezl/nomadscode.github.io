@@ -154,14 +154,17 @@
       // Get slack Users
       var endpoint = "https://slack.com/api/users.list?token=" + slackAPIToken;
       $.getJSON(endpoint, function(data) {
-        var slackUsers = data.members;
+        var members = data.members;
+        // The list of objects sucks for search, so lets remake it to make it easier to use later.
+        var slackUsers = {};
+        $.each(members, function(index, member) {
+          slackUsers[member.name] = member;
+        });
         window.slackUsers = slackUsers;
       })
 
       slackUserExists = function(slackUsername) {
-        return slackUsers.some(function(el) {
-          return el.name === slackUsername;
-        });
+        return slackUsername in slackUsers;
       }
 
       // Insert a new table row for a user
