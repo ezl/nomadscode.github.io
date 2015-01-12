@@ -104,6 +104,7 @@
                 <th>Skills</th>
                 <th>Weekly Rate (USD)</th>
                 <th>I'm Awesome Because</th>
+                <th>Time Zone</th>
               </tr>
             </thead>
             <tbody>
@@ -176,6 +177,7 @@
         newTableRow.append($("<td/>").text(data.skills));
         newTableRow.append($("<td/>").text(data.weeklyRate));
         newTableRow.append($("<td/>").text(data.aboutMe));
+        newTableRow.append($("<td/>").text(data.timezone));
         $("#usersTable > tbody").append(newTableRow);
       }
 
@@ -199,6 +201,8 @@
           return;
         }
         var data = $(this).serializeObject();
+        var timezone = slackUsers[slackUsername]['tz'];
+        data['timezone'] = timezone;
         fb.child(data.slackUsername).set(data);
       });
 
