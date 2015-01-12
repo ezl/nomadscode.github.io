@@ -47,13 +47,13 @@
                 <p class="title">I am mostly interested in</p>
                  <div class="radio">
                    <label>
-                     <input type="radio" name="hireOrBeHired" id="beHiredRadio" value="beHired" checked>
+                     <input type="radio" name="hiringOrForHire" id="forHireRadio" value="forHire" checked>
                      Being Hired
                    </label>
                  </div><!-- .radio -->
                  <div class="radio">
                    <label>
-                     <input type="radio" name="hireOrBeHired" id="hireRadio" value="hirePeople">
+                     <input type="radio" name="hiringOrForHire" id="hiringRadio" value="hiring">
                      Hiring People
                    </label>
                  </div><!-- .radio -->
@@ -62,13 +62,13 @@
 
             <div class="row">
               <div class="col-sm-6">
-                <p class="title beHired">I primarily work with these skills/technologies</p>
-                <p class="title hirePeople" style="display:none;">I want to hire someone with these skills/technologies</p>
+                <p class="title forHire">I primarily work with these skills/technologies</p>
+                <p class="title hiring" style="display:none;">I want to hire someone with these skills/technologies</p>
                 <textarea class="form-control" id="skills" name="skills" rows="3"></textarea>
                 <p class="helptext">Python, Ruby, PHP, Wordpress, SEO, Design Work, UI/UX Consulting, Marketing, Copy Writing, Social Media Management, etc.</p>
                 <p class="helptext">One per row, maximum of 4.</p>
               </div><!-- .col-sm-6 -->
-              <div class="col-sm-6 beHired">
+              <div class="col-sm-6 forHire">
                 <p class="title">My Weekly Rate In USD Is:</p>
                 <div class="form-group">
                   <label class="sr-only" for="weeklyRate">Weekly Rate</label>
@@ -95,14 +95,14 @@
 
       <div class="row">
         <div class="col-md-12">
-          <table class="table table-striped table-condensed table-hover">
+          <table class="table table-striped table-condensed table-hover" id="usersTable">
             <thead>
               <tr>
                 <th>Slack Handle</th>
                 <th>Hiring/For Hire</th>
                 <th>Skills</th>
                 <th>Weekly Rate (USD)</th>
-                <th>I'm Awesome Because:</th>
+                <th>I'm Awesome Because</th>
               </tr>
             </thead>
             <tbody>
@@ -117,24 +117,44 @@
   <script type='text/javascript'>
     jQuery(document).ready(function(){
       // Show or Hide fields based on whether the user wants to hire or be hired
-      $('input:radio[name="hireOrBeHired"]').change(function() {
-          if ($(this).is(':checked') && $(this).val() == 'beHired') {
-            $(".beHired").show();
-            $(".hirePeople").hide();
+      $('input:radio[name="hiringOrForHire"]').change(function() {
+          if ($(this).is(':checked') && $(this).val() == 'forHire') {
+            $(".forHire").show();
+            $(".hiring").hide();
           } else {
-            $(".beHired").hide();
-            $(".hirePeople").show();
+            $(".forHire").hide();
+            $(".hiring").show();
           }
       });
+
+      // Insert a new table row for a user
+      var insertUserInTable = function(snapshot) {
+        var data = snapshot.val();
+        var newTableRow = $("<tr/>");
+        newTableRow.append($("<td/>").text(data.slackUsername));
+        newTableRow.append($("<td/>").text(data.hiringOrForHire));
+        newTableRow.append($("<td/>").text(data.skills));
+        newTableRow.append($("<td/>").text(data.weeklyRate));
+        newTableRow.append($("<td/>").text(data.aboutMe));
+        $("#usersTable > tbody").append(newTableRow);
+      }
 
       // Create our Firebase reference
       var fb = new Firebase('https://amber-heat-8792.firebaseio.com/');
 
+      // Set up the view
+      var usersView =  fb.orderByKey()
+
+      // Set callback for when a user is added
+      usersView.on('child_added', function(snapshot, previousChildKey) {
+        insertUserInTable(snapshot);
+      });
+
       // Listen for form input and save to firebase
-      $("#addUser").on("submit", function() {
-        var obj = $(this).serializeObject();
-        console.log(obj);
-        window.obj = obj
+      $("#addUser").on("submit", function(event) {
+        event.preventDefault();
+        var data = $(this).serializeObject();
+        fb.child(data.slackUsername).set(data);
       });
 
     });
