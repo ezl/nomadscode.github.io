@@ -1,6 +1,6 @@
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="static/css/custom.css">
@@ -34,111 +34,110 @@
       <hr>
 
       <section id="formForAddingUsers"><!-- the form input -->
-      <div class="row">
-        <div class="col-md-12">
-          <form id="addUser" class="form well">
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="title">Hi. on Slack/hashtagnomads, I am</p>
-                <div class="form-group">
-                  <label class="sr-only" for="slackUsername">Slack Username</label>
-                  <input type="text" class="form-control" name="slackUsername" id="slackUsername" placeholder="Your Slack Username">
-                </div>
-              </div><!-- .col-sm-6 -->
-              <div class="col-sm-6">
-                <p class="title">I am mostly interested in</p>
-                 <div class="radio">
-                   <label>
-                     <input type="radio" name="hiringOrForHire" id="forHireRadio" value="forHire" checked>
-                     Being Hired
-                   </label>
-                 </div><!-- .radio -->
-                 <div class="radio">
-                   <label>
-                     <input type="radio" name="hiringOrForHire" id="hiringRadio" value="hiring">
-                     Hiring People
-                   </label>
-                 </div><!-- .radio -->
-              </div><!-- .col-sm-6 -->
-            </div><!-- .row -->
+        <div class="row">
+          <div class="col-md-12">
+            <form id="addUser" class="form well">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p class="title">Hi. on Slack/hashtagnomads, I am</p>
+                  <div class="form-group">
+                    <label class="sr-only" for="slackUsername">Slack Username</label>
+                    <input type="text" class="form-control" name="slackUsername" id="slackUsername" placeholder="Your Slack Username">
+                  </div>
+                </div><!-- .col-sm-6 -->
+                <div class="col-sm-6">
+                  <p class="title">I am mostly interested in</p>
+                   <div class="radio">
+                     <label>
+                       <input type="radio" name="hiringOrForHire" id="forHireRadio" value="forHire" checked>
+                       Being Hired
+                     </label>
+                   </div><!-- .radio -->
+                   <div class="radio">
+                     <label>
+                       <input type="radio" name="hiringOrForHire" id="hiringRadio" value="hiring">
+                       Hiring People
+                     </label>
+                   </div><!-- .radio -->
+                </div><!-- .col-sm-6 -->
+              </div><!-- .row -->
 
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="title forHire">I primarily work with these skills/technologies</p>
-                <p class="title hiring" style="display:none;">I want to hire someone with these skills/technologies</p>
-                <textarea class="form-control" id="skills" name="skills" rows="3"></textarea>
-                <p class="helptext">Python, Ruby, PHP, Wordpress, SEO, Design Work, UI/UX Consulting, Marketing, Copy Writing, Social Media Management, etc.</p>
-                <p class="helptext">One per row, maximum of 4.</p>
-              </div><!-- .col-sm-6 -->
-              <div class="col-sm-6 forHire">
-                <p class="title">My Weekly Rate In USD Is:</p>
-                <div class="form-group">
-                  <label class="sr-only" for="weeklyRate">Weekly Rate</label>
-                  <input type="number" class="form-control" id="weeklyRate" name="weeklyRate">
-                  <p class="helptext">Pick a weekly number you'd be comfortable with for a gig you'd like.</p>
-                  <p class="helptext">Yes, "it varies".  But use a starting anchor on a weekly timeframe you're comfortable with and people can connect and individually negotiate hourly or monthly or per project situations.</p>
-                </div>
-              </div><!-- .col-sm-6 -->
-            </div><!-- .row -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <p class="title forHire">I primarily work with these skills/technologies</p>
+                  <p class="title hiring" style="display:none;">I want to hire someone with these skills/technologies</p>
+                  <textarea class="form-control" id="skills" name="skills" rows="3"></textarea>
+                  <p class="helptext">Python, Ruby, PHP, Wordpress, SEO, Design Work, UI/UX Consulting, Marketing, Copy Writing, Social Media Management, etc.</p>
+                  <p class="helptext">One per row, maximum of 4.</p>
+                </div><!-- .col-sm-6 -->
+                <div class="col-sm-6 forHire">
+                  <p class="title">My Weekly Rate In USD Is:</p>
+                  <div class="form-group">
+                    <label class="sr-only" for="weeklyRate">Weekly Rate</label>
+                    <input type="number" class="form-control" id="weeklyRate" name="weeklyRate">
+                    <p class="helptext">Pick a weekly number you'd be comfortable with for a gig you'd like.</p>
+                    <p class="helptext">Yes, "it varies".  But use a starting anchor on a weekly timeframe you're comfortable with and people can connect and individually negotiate hourly or monthly or per project situations.</p>
+                  </div>
+                </div><!-- .col-sm-6 -->
+              </div><!-- .row -->
 
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="form-group">
-                  <p class="title">It would be awesome to work with me because...</p>
-                  <label class="sr-only" for="aboutMe">About Me</label>
-                  <textarea class="form-control" rows="3" id="aboutMe" name="aboutMe" placeholder="You're a precious snowflake.  I know you want to tell me all about it. Here's your chance to tell your next employee/employer why working with you is a delight and a privilege."></textarea>
-                </div>
-              </div><!-- .col-sm-12 -->
-            </div><!-- .row -->
-            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add Me To The List</button>
-          </form>
-        </div><!-- .col-md-12 -->
-      </div><!-- .row -->
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <p class="title">It would be awesome to work with me because...</p>
+                    <label class="sr-only" for="aboutMe">About Me</label>
+                    <textarea class="form-control" rows="3" id="aboutMe" name="aboutMe" placeholder="You're a precious snowflake.  I know you want to tell me all about it. Here's your chance to tell your next employee/employer why working with you is a delight and a privilege."></textarea>
+                  </div>
+                </div><!-- .col-sm-12 -->
+              </div><!-- .row -->
+              <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add Me To The List</button>
+            </form>
+          </div><!-- .col-md-12 -->
+        </div><!-- .row -->
       </section><!-- end add user form area -->
 
       <section id="displayUsers">
-      <div class="row">
-        <div class="col-md-12">
-          <table class="table table-striped table-condensed table-hover" id="usersTable">
-            <thead>
-              <tr>
-                <th>Slack Handle</th>
-                <th>Hiring/For Hire</th>
-                <th>Skills</th>
-                <th>Weekly Rate (USD)</th>
-                <th>I'm Awesome Because</th>
-                <th>Time Zone</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div><!-- .col-md-12 -->
-      </div><!-- .row -->
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-striped table-condensed table-hover" id="usersTable">
+              <thead>
+                <tr>
+                  <th>Slack Handle</th>
+                  <th>Hiring/For Hire</th>
+                  <th>Skills</th>
+                  <th>Weekly Rate (USD)</th>
+                  <th>I'm Awesome Because</th>
+                  <th>Time Zone</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div><!-- .col-md-12 -->
+        </div><!-- .row -->
       </section><!-- end area for displaying users -->
 
     </div><!-- #main -->
   </div><!-- .container -->
 
-<div class="modal fade" id="invalidUsernameModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header modal-header-red">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title"><i class="fa fa-warning"></i> Hmmm... We couldn't find your username.</h4>
-      </div>
-      <div class="modal-body">
-        <p>This list is intended as a private list between members of <a href="http://hashtagnomads.com/">#nomads</a>, a membership subscription group of digital nomads.</p>
-        <p>If you're not a member, please join by signing up here: <a href="http://hashtagnomads.com/">http://hashtagnomads.com/</a>.</p>
-        <p class="helptext">There is a small, one-time membership fee to join the group.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
+  <div class="modal fade" id="invalidUsernameModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header modal-header-red">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><i class="fa fa-warning"></i> Hmmm... We couldn't find your username.</h4>
+        </div>
+        <div class="modal-body">
+          <p>This list is intended as a private list between members of <a href="http://hashtagnomads.com/">#nomads</a>, a membership subscription group of digital nomads.</p>
+          <p>If you're not a member, please join by signing up here: <a href="http://hashtagnomads.com/">http://hashtagnomads.com/</a>.</p>
+          <p class="helptext">There is a small, one-time membership fee to join the group.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
   <script type='text/javascript'>
     jQuery(document).ready(function(){
