@@ -14,3 +14,8 @@ p.helptext {
   color: #959595;
   font-style: italic;
 }
+
+.modal-header.modal-header-red {
+  background-color: #ff4742;
+  color: white;
+}

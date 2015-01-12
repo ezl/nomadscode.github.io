@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="static/css/custom.css">
   <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src='static/js/jquery.serializeObject.js'></script>
 
 </head>
@@ -114,6 +115,26 @@
     </div><!-- #main -->
   </div><!-- .container -->
 
+<div class="modal fade" id="invalidUsernameModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-red">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><i class="fa fa-warning"></i> Hmmm... We couldn't find your username.</h4>
+      </div>
+      <div class="modal-body">
+        <p>This list is intended as a private list between members of <a href="http://hashtagnomads.com/">#nomads</a>, a membership subscription group of digital nomads.</p>
+        <p>If you're not a member, please join by signing up here: <a href="http://hashtagnomads.com/">http://hashtagnomads.com/</a>.</p>
+        <p class="helptext">There is a small, one-time membership fee to join the group.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
   <script type='text/javascript'>
     jQuery(document).ready(function(){
       // Show or Hide fields based on whether the user wants to hire or be hired
@@ -171,7 +192,7 @@
         event.preventDefault();
         var slackUsername = $("#slackUsername").val();
         if (!slackUserExists(slackUsername)) {
-          alert("No such user");
+          $("#invalidUsernameModal").modal();
           return;
         }
         var data = $(this).serializeObject();
